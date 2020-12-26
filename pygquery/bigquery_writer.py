@@ -1,15 +1,19 @@
+"""BigQueryWriter
+Writes a query
+"""
+
 from threading import Thread
 from google.cloud import bigquery
 from google.oauth2.service_account import Credentials
 
-lass BigQueryWriter(Thread):
+
+class BigQueryWriter(Thread):
+    """Reads Query"""
     def __init__(self, dataframe, project, dataset, table, if_exists,
                  api_key_path):
         """Object Configuration"""
         Thread.__init__(self)
-        """Client Configuration"""
         credentials = Credentials.from_service_account_file(api_key_path)
-
         _client = bigquery.Client(credentials=credentials, project=project)
 
         dataset_ref = _client.dataset(dataset)
@@ -32,5 +36,5 @@ lass BigQueryWriter(Thread):
             job_config=_job_config)
 
     def run(self):
-
+        """starts writing data"""
         self._query_job.result()

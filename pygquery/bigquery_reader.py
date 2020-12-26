@@ -1,8 +1,16 @@
+"""BigQueryReader
+Reads a query
+"""
+
 from threading import Thread
 from google.cloud import bigquery
 from google.oauth2.service_account import Credentials
 
+
 class BigQueryReader(Thread):
+    """BigQueryReader
+    Reads a query
+    """
     def __init__(self, request, project, api_key_path):
         """Object Configuration"""
         Thread.__init__(self)
@@ -27,9 +35,10 @@ class BigQueryReader(Thread):
             raise RuntimeError(self._query_job.errors)
 
     def run(self):
-
+        """Start thread"""
         self._data = self._query_job.to_dataframe()
 
     @property
     def data(self):
+        """return data"""
         return self._data
