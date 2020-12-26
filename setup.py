@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="PygQuery",
-    version="0.0.2",
+    version="0.0.3",
     author="M_Lbr",
     author_email="m.micky.lbr@gmail.com",
     description="Utils package for Google BigQuery",
