@@ -19,7 +19,8 @@ setup(
         "Operating System :: OS Independent", "Natural Language :: English"
     ],
     install_requires=[
-        'numpy', 'pandas', 'google-cloud-bigquery', 'google-api-python-client',
-        'google-auth-httplib2', 'google-auth-oauthlib', 'pyarrow'
+        'google-cloud-bigquery-storage', 'pandas', 'google-cloud-bigquery',
+        'google-api-python-client', 'google-auth-httplib2', 'google-auth-oauthlib',
+        'fastavro','pyarrow'
     ],
 )
