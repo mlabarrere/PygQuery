@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setup(
     name="PygQuery",
-    version="0.0.3",
+    version="0.0.4",
     author="M_Lbr",
     author_email="m.micky.lbr@gmail.com",
-    description="Utils package for Google BigQuery",
+    description="🐷 Multitread your data with Google BigQuery",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/mlabarrere/PygQuery",
