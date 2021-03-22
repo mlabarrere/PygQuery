@@ -11,7 +11,7 @@ class BigQueryReader(Thread):
     """BigQueryReader
     Reads a query
     """
-    def __init__(self, request, project, api_key_path):
+    def __init__(self, request, project, api_key_path=None, api_key_json=None):
         """Object Configuration"""
         Thread.__init__(self)
         self._data = None
@@ -20,8 +20,13 @@ class BigQueryReader(Thread):
                   'https://www.googleapis.com/auth/drive',
                   'https://www.googleapis.com/auth/spreadsheets.readonly')
 
-        credentials = Credentials.from_service_account_file(
-            api_key_path, scopes=scopes)
+        if api_key_path is not None :
+            credentials = Credentials.from_service_account_file(
+                api_key_path, scopes=scopes)
+            
+        elif api_key_json is not None :
+            credentials = Credentials.from_service_account_info(
+                api_key_json, scopes=scopes)
 
         _client = bigquery.Client(credentials=credentials, project=project)
 
