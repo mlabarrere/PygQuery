@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="PygQuery",
-    version="0.0.4",
+    version="0.0.5",
     author="M_Lbr",
     author_email="m.micky.lbr@gmail.com",
     description="🐷 Multitread your data with Google BigQuery",
