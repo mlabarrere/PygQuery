@@ -52,10 +52,16 @@ class BigQueryReader(Thread):
 class BigQueryWriter(Thread):
     """Reads Query"""
     def __init__(self, dataframe, project, dataset, table, if_exists,
-                 api_key_path):
+                 api_key_path=None, api_key_json=None):
         """Object Configuration"""
         Thread.__init__(self)
-        credentials = Credentials.from_service_account_file(api_key_path)
+        if api_key_path is not None :
+            credentials = Credentials.from_service_account_file(
+                api_key_path)
+            
+        elif api_key_json is not None :
+            credentials = Credentials.from_service_account_info(
+                api_key_json)
         _client = bigquery.Client(credentials=credentials, project=project)
 
         dataset_ref = _client.dataset(dataset)
